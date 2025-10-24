@@ -8,4 +8,11 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
             posicoes.append([linha + i, coluna])
     return posicoes
 
+def preenche_frota(frota, navio, linha, coluna, orientacao, tamanho):
+    posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
+    if navio in frota:
+        frota[navio].append(posicoes)
+    else:
+        frota[navio] = [posicoes]
+    return frota
 
