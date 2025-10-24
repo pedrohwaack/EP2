@@ -31,3 +31,17 @@ def posiciona_frota(frota):
                 linha, coluna = posicao
                 tabuleiro[linha][coluna] = 1
     return tabuleiro
+
+def afundados(frota, tabuleiro):
+    cont = 0
+    for tipo_navio in frota.values():
+        for navio in tipo_navio:
+            afundou = True
+            for posicao in navio:
+                linha, coluna = posicao
+                if tabuleiro[linha][coluna] != 'X':
+                    afundou = False
+                    break
+            if afundou:
+                cont += 1
+    return cont
